@@ -1,0 +1,252 @@
+import React, { useState } from 'react';
+import { BookOpen, Sparkles, Leaf, TreePine, Flame, Sprout, Sun, ArrowLeft, ArrowRight, X } from 'lucide-react';
+
+const storyData = [
+  {
+    id: 'intro',
+    title: 'Chapitre 0 : Le Monde d\'Ori',
+    icon: BookOpen,
+    content: (
+      <>
+        <p className="text-lg text-indigo-200 mb-6 leading-relaxed">
+          Bienvenue dans le récit complet de la saga **Ori**. Ce document vous guidera à travers les événements poignants et les aventures épiques de l'esprit gardien, depuis sa naissance accidentelle dans la Forêt de Nibel jusqu'à son destin final en tant que protecteur de la vie. Préparez-vous à plonger dans une histoire de sacrifice, d'amour et de lumière, racontée avec une richesse de détails inédite.
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          La saga se divise en deux jeux principaux : **Ori and the Blind Forest** et **Ori and the Will of the Wisps**. Nous explorerons chaque moment clé, chaque personnage et chaque décision qui a façonné le destin d'Ori. Le voyage commence avec la Forêt de Nibel, où la lumière et la vie sont en parfaite harmonie, jusqu'à ce que le destin intervienne.
+        </p>
+        <img
+            src="https://placehold.co/1200x675/1f2937/9ca3af?text=Le+Monde+d'Ori"
+            alt="[Image du Monde d'Ori]"
+            className="w-full h-auto object-cover rounded-xl mt-6 shadow-lg ring-1 ring-indigo-500/20"
+        />
+      </>
+    ),
+  },
+  {
+    id: 'prologue',
+    title: 'Chapitre 1 : Le Prologue - La Chute et le Malheur',
+    icon: Sparkles,
+    content: (
+      <>
+        <p className="text-lg text-indigo-200 mb-6 leading-relaxed">
+          Tout commence dans la paisible et magique **Forêt de Nibel**, sous la protection bienveillante de l'imposant **Arbre Spirituel**. Durant une violente tempête, une feuille se détache de l'arbre, emportant avec elle une petite créature de lumière, un esprit gardien nommé **Ori**. La feuille s'écrase loin, et Ori, seule et vulnérable, est découverte par une créature tendre et massive nommée **Naru**. Naru l'élève comme son propre enfant, et les deux vivent dans un bonheur simple.
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Ce bonheur est brisé lorsque **Sein**, le cœur de l'Arbre Spirituel, est volé par la chouette géante **Kuro**. Ce vol provoque un événement cataclysmique : le Fléau. La forêt commence à se flétrir, la nourriture disparaît. Naru, affaiblie, finit par mourir de faim, laissant Ori seule et dévastée. C'est à ce moment, au bord du désespoir, que l'Arbre Spirituel guide Ori et la ressuscite, l'incitant à entreprendre sa quête.
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Cet événement est le point de départ de l'aventure d'Ori. L'esprit gardien, initialement une créature de lumière sans but, découvre sa destinée en devenant le dernier espoir d'une forêt mourante. Ori retrouve **Sein**, qui est maintenant l'esprit qui l'accompagne et le guide. Ensemble, ils doivent restaurer l'équilibre de Nibel en purifiant les trois éléments : l'eau, le vent et la chaleur.
+        </p>
+        <img
+            src="https://placehold.co/1200x675/1f2937/9ca3af?text=Naru+et+Ori+dans+leur+maison"
+            alt="[Image de Naru et Ori dans leur maison]"
+            className="w-full h-auto object-cover rounded-xl mt-6 shadow-lg ring-1 ring-indigo-500/20"
+        />
+      </>
+    ),
+  },
+  {
+    id: 'blind-forest-1',
+    title: 'Chapitre 2 : La Quête des Éléments de Nibel',
+    icon: Leaf,
+    content: (
+      <>
+        <p className="text-lg text-indigo-200 mb-6 leading-relaxed">
+          Le voyage d'Ori et Sein est un périple de guérison à travers les zones ravagées de Nibel. Chaque élément est lié à une zone spécifique de la forêt, et Ori doit affronter des défis uniques pour chacun d'eux.
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Sa première étape est l'**Arbre de Ginso**, un lieu majestueux mais ravagé. Pour y parvenir, Ori doit remonter des chutes d'eau et escalader des plateformes périlleuses, tout en étant poursuivie par Kuro. En atteignant le sommet, Ori libère le flux de l'eau, permettant à la vie de s'épanouir à nouveau dans les terres en contrebas, redonnant de l'espoir à la forêt.
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Ori se rend ensuite aux **Ruines de Forlorn**, un lieu de glace et de vent. En rétablissant le vent, Ori purifie l'air et permet à la lumière de se propager. Le défi ici est de naviguer dans un environnement hostile, avec des vents puissants et des passages gelés. La dernière étape est le **Mont Horu**, le cœur volcanique de la forêt, pour restaurer le dernier élément : la chaleur.
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Chacun de ces voyages met à l'épreuve le courage et les compétences d'Ori, la préparant à la confrontation finale.
+        </p>
+        <img
+            src="https://placehold.co/1200x675/1f2937/9ca3af?text=Ori+dans+les+ruines+de+Forlorn"
+            alt="[Image d'Ori dans les ruines de Forlorn]"
+            className="w-full h-auto object-cover rounded-xl mt-6 shadow-lg ring-1 ring-indigo-500/20"
+        />
+      </>
+    ),
+  },
+  {
+    id: 'blind-forest-2',
+    title: 'Chapitre 3 : La Menace et le Sacrifice de Kuro',
+    icon: Flame,
+    content: (
+      <>
+        <p className="text-lg text-indigo-200 mb-6 leading-relaxed">
+          Tout au long de son voyage, Ori est confrontée à la menace de **Kuro**, une gigantesque chouette. D'abord perçue comme un monstre sans cœur, Kuro se révèle être une mère endeuillée. La lumière de l'Arbre Spirituel a autrefois consumé ses enfants, et elle a volé Sein en représailles, déclenchant le Fléau par accident.
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Le voyage d'Ori la mène finalement au **Mont Horu**, le cœur volcanique de la forêt. Après avoir restauré le dernier élément, la chaleur, l'Arbre Spirituel se prépare à libérer une vague de lumière pour purifier Nibel. C'est à ce moment que Kuro lance sa dernière attaque, cherchant à protéger son dernier œuf de la même lumière qui a tué sa famille. Cependant, réalisant le danger qui menace toute la forêt, Kuro fait un choix déchirant. Elle prend son œuf et se sacrifie en plaçant ses ailes devant la lumière, permettant ainsi à la vie de revenir, sauvant Nibel et son dernier enfant, **Ku**.
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Ce sacrifice est un moment clé de l'histoire, montrant que même un antagoniste peut être motivé par l'amour et le désespoir. Il scelle le destin de Kuro et permet à Nibel de renaître, marquant la fin du premier jeu.
+        </p>
+        <img
+            src="https://placehold.co/1200x675/1f2937/9ca3af?text=Le+sacrifice+de+Kuro"
+            alt="[Image de Kuro se sacrifiant]"
+            className="w-full h-auto object-cover rounded-xl mt-6 shadow-lg ring-1 ring-indigo-500/20"
+        />
+      </>
+    ),
+  },
+  {
+    id: 'will-of-the-wisps-1',
+    title: 'Chapitre 4 : La Fôret de Niwen - Un Nouveau Départ',
+    icon: Sprout,
+    content: (
+      <>
+        <p className="text-lg text-indigo-200 mb-6 leading-relaxed">
+          Quelques années plus tard, Ori vit en paix avec Naru, Gumo et le nouveau-né Ku dans une Nibel restaurée. Ku a une aile endommagée depuis sa naissance, et Ori et sa famille l'aident à s'envoler. Ensemble, ils explorent le monde, mais une violente tempête les sépare, les projetant dans la lointaine forêt de **Niwen**.
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Ku est séparé d'Ori, qui se retrouve seule dans un monde frappé par un nouveau Fléau : la Pourriture. Pour sauver sa nouvelle amie et la forêt, Ori doit chercher les **trois Wisps** spirituels. Sur son chemin, il rencontre de nouveaux alliés, comme Kwolok, un crapaud sage, et de nombreux Mokis qui l'aident dans sa quête.
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          L'antagoniste de cette histoire est **Shriek**, un être de pierre et de ténèbres, né de la pourriture elle-même. Shriek a été rejetée et seule toute sa vie, et elle est pleine de haine envers la lumière et la vie qu'elle n'a jamais pu connaître. Son histoire est un miroir de celle de Kuro, mais avec une issue très différente.
+        </p>
+        <img
+            src="https://placehold.co/1200x675/1f2937/9ca3af?text=Ori+et+Ku+ensemble"
+            alt="[Image d'Ori et Ku volant ensemble]"
+            className="w-full h-auto object-cover rounded-xl mt-6 shadow-lg ring-1 ring-indigo-500/20"
+        />
+      </>
+    ),
+  },
+  {
+    id: 'will-of-the-wisps-2',
+    title: 'Chapitre 5 : Le Destin d\'Ori et le Sacrifice Final',
+    icon: Sun,
+    content: (
+      <>
+        <p className="text-lg text-indigo-200 mb-6 leading-relaxed">
+          Après avoir vaincu le mal qui dévore Niwen et récupéré les Wisps, Ori fait face à l'ultime défi. Le seul moyen de sauver la forêt est de fusionner avec son Arbre Spirituel, un acte qui exige un sacrifice complet de l'esprit gardien. Ku et Naru arrivent juste à temps pour soutenir Ori, mais la décision est prise.
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Dans un acte d'amour et de sacrifice ultime, Ori se fond dans la lumière de l'Arbre Spirituel, se transformant en la nouvelle source de vie pour Niwen. La forêt se régénère, et le cycle de la vie est restauré. Le jeu se termine avec l'Arbre Spirituel, maintenant Ori, laissant tomber une feuille. Cette feuille emporte avec elle une nouvelle créature de lumière, un nouvel esprit gardien, assurant que l'héritage d'Ori perdurera à travers les âges.
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          L'histoire d'Ori se conclut donc avec le sacrifice du héros pour le bien de tous. L'esprit qui a un jour chuté d'un arbre devient lui-même la source de vie d'un autre arbre, fermant la boucle de l'histoire et laissant un héritage de lumière et d'espoir.
+        </p>
+        <img
+            src="https://placehold.co/1200x675/1f2937/9ca3af?text=Le+sacrifice+d'Ori+et+le+nouvel+Arbre+Spirituel"
+            alt="[Image du sacrifice d'Ori et du nouvel Arbre Spirituel]"
+            className="w-full h-auto object-cover rounded-xl mt-6 shadow-lg ring-1 ring-indigo-500/20"
+        />
+      </>
+    ),
+  },
+];
+
+const App = () => {
+  const [currentPageIndex, setCurrentPageIndex] = useState(0);
+  const [isSummaryOpen, setIsSummaryOpen] = useState(false);
+
+  const currentPage = storyData[currentPageIndex];
+
+  const handleNextPage = () => {
+    if (currentPageIndex < storyData.length - 1) {
+      setCurrentPageIndex(currentPageIndex + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPageIndex > 0) {
+      setCurrentPageIndex(currentPageIndex - 1);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-950 text-gray-100 font-sans flex flex-col antialiased">
+      {/* Contenu principal de l'histoire */}
+      <main className="flex-grow p-4 lg:p-10 overflow-y-auto max-w-4xl mx-auto w-full pb-28 lg:pb-32">
+        <div className="bg-gray-900/50 rounded-2xl shadow-xl p-6 lg:p-10 ring-1 ring-indigo-500/20">
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-indigo-400 mb-6">{currentPage.title}</h2>
+          <hr className="border-t-2 border-indigo-500/30 mb-8" />
+          {currentPage.content}
+        </div>
+      </main>
+
+      {/* Bouton flottant pour le sommaire */}
+      <div className="fixed bottom-24 right-4 lg:right-8 z-50">
+        <button
+          onClick={() => setIsSummaryOpen(true)}
+          className="bg-indigo-700 text-white rounded-full p-4 shadow-lg hover:bg-indigo-600 transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-indigo-500/50"
+        >
+          <BookOpen size={24} />
+        </button>
+      </div>
+
+      {/* Boutons de navigation fixes en bas de page */}
+      <div className="fixed bottom-0 left-0 right-0 bg-gray-900/90 backdrop-blur-sm p-4 lg:p-6 flex justify-between items-center shadow-lg ring-t-2 ring-indigo-500/20 z-50">
+        <button
+          onClick={handlePreviousPage}
+          disabled={currentPageIndex === 0}
+          className={`flex items-center gap-2 px-4 py-2 lg:px-6 lg:py-3 rounded-full text-sm lg:text-lg font-semibold transition-all duration-300 ${
+            currentPageIndex === 0
+              ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
+              : 'bg-gradient-to-r from-indigo-700 to-violet-700 text-white hover:from-indigo-600 hover:to-violet-600 shadow-lg'
+          }`}
+        >
+          <ArrowLeft size={20} />
+          <span className="hidden lg:inline">Précédent</span>
+        </button>
+        <span className="text-gray-400 text-sm lg:text-base">
+          {currentPageIndex + 1} / {storyData.length}
+        </span>
+        <button
+          onClick={handleNextPage}
+          disabled={currentPageIndex === storyData.length - 1}
+          className={`flex items-center gap-2 px-4 py-2 lg:px-6 lg:py-3 rounded-full text-sm lg:text-lg font-semibold transition-all duration-300 ${
+            currentPageIndex === storyData.length - 1
+              ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
+              : 'bg-gradient-to-r from-indigo-700 to-violet-700 text-white hover:from-indigo-600 hover:to-violet-600 shadow-lg'
+          }`}
+        >
+          <span className="hidden lg:inline">Suivant</span>
+          <ArrowRight size={20} />
+        </button>
+      </div>
+
+      {/* Sommaire (Modal) */}
+      {isSummaryOpen && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-40 p-4">
+          <div className="bg-gray-900 rounded-3xl p-6 lg:p-10 max-w-lg w-full shadow-2xl ring-2 ring-indigo-500/20 relative">
+            <button
+              onClick={() => setIsSummaryOpen(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-gray-800"
+            >
+              <X size={24} />
+            </button>
+            <h3 className="text-3xl font-bold mb-6 text-indigo-400 flex items-center gap-3">
+              <BookOpen size={32} />
+              Sommaire de l'histoire
+            </h3>
+            <div className="space-y-4 max-h-[70vh] overflow-y-auto pr-2">
+              {storyData.map((page, index) => (
+                <div
+                  key={page.id}
+                  className={`flex items-center gap-3 p-2 rounded-lg ${
+                    currentPageIndex === index
+                      ? 'bg-indigo-700 text-white'
+                      : 'text-indigo-200'
+                  }`}
+                >
+                  <page.icon size={20} className="shrink-0" />
+                  <span className="text-left w-full">{page.title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default App;
+
